@@ -1,0 +1,4 @@
+services:
+#    csp_comic.example:
+#        class: CSP\ComicBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
