@@ -127,6 +127,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        // csp_comic_homepage
+        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+            return $this->mergeDefaults(array_replace($matches, array('_route' => 'csp_comic_homepage')), array (  '_controller' => 'CSP\\ComicBundle\\Controller\\DefaultController::indexAction',));
+        }
+
+        // hello_the_world
+        if ($pathinfo === '/index') {
+            return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::indexAction',  '_route' => 'hello_the_world',);
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
