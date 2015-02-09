@@ -4,5 +4,5 @@ p
 }
 h1
 {
-    font-size: 70px; /* Titres de 40 pixels */
+    font-size: 40px; /* Titres de 40 pixels */
 }
