@@ -7,49 +7,49 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        // line 3
+        try {
+            $this->parent = $this->env->loadTemplate("CSPComicBundle::layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(3);
+
+            throw $e;
+        }
 
         $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'ocplatform_body' => array($this, 'block_ocplatform_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "CSPComicBundle::layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "<!DOCTYPE html>
-<html>
-    <head>
-        <title>COMIC SHARING PLATFORM!</title>
-        ";
-        // line 5
-        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
-            // asset "7c91ed6_0"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7c91ed6_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/7c91ed6_main_1.css");
-            // line 6
-            echo "\t\t\t<link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\" type=\"text/css\" />
-\t\t";
-        } else {
-            // asset "7c91ed6"
-            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_7c91ed6") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/7c91ed6.css");
-            echo "\t\t\t<link rel=\"stylesheet\" href=\"";
-            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
-            echo "\" type=\"text/css\" />
-\t\t";
-        }
-        unset($context["asset_url"]);
-        // line 8
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 5
+    public function block_title($context, array $blocks = array())
+    {
+        // line 6
+        echo "  Accueil - ";
+        $this->displayParentBlock("title", $context, $blocks);
         echo "
-    </head>
-    <body>
-        <h1>CSP!</h1>
-        
-        <p>
-            Ce site est encore en construction.
-        </p>
-    </body>
-</html>";
+";
+    }
+
+    // line 9
+    public function block_ocplatform_body($context, array $blocks = array())
+    {
+        // line 10
+        echo "
+
+";
     }
 
     public function getTemplateName()
@@ -64,6 +64,6 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
 
     public function getDebugInfo()
     {
-        return array (  43 => 8,  29 => 6,  25 => 5,  19 => 1,);
+        return array (  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
     }
 }

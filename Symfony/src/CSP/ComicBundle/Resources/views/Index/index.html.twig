@@ -1,17 +1,12 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>COMIC SHARING PLATFORM!</title>
-        {% stylesheets '@CSPComicBundle/Resources/public/css/main.css' %}
-			<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
-		{% endstylesheets %}
+{# src/CSP/ComicBundle/Resources/views/Advert/index.html.twig #}
 
-    </head>
-    <body>
-        <h1>CSP!</h1>
-        
-        <p>
-            Ce site est encore en construction.
-        </p>
-    </body>
-</html>
+{% extends "CSPComicBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+{% endblock %}
+
+{% block ocplatform_body %}
+
+
+{% endblock %}
