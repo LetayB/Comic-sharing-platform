@@ -3,10 +3,13 @@
 {% extends "CSPComicBundle::layout.html.twig" %}
 
 {% block title %}
-  Accueil - {{ parent() }}
+  News - {{ parent() }}
 {% endblock %}
 
-{% block ocplatform_body %}
+{% block comic_body %}
+
+  <h2>Flux</h2>
+  <a href="{{ path('csp_comic_upload') }}">Upload</a>
 
 
 {% endblock %}

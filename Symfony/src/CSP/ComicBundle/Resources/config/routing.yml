@@ -2,5 +2,7 @@ csp_comic_homepage:
     path:     /	
     defaults: { _controller: CSPComicBundle:Index:index }
 
-
+csp_comic_upload:
+    path:     /upload
+    defaults: { _controller: CSPComicBundle:Index:upload }
 

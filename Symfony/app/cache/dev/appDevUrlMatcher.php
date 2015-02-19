@@ -136,6 +136,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::indexAction',  '_route' => 'csp_comic_homepage',);
         }
 
+        // csp_comic_upload
+        if ($pathinfo === '/upload') {
+            return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::uploadAction',  '_route' => 'csp_comic_upload',);
+        }
+
         // homepage
         if ($pathinfo === '/app/example') {
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
