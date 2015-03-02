@@ -19,7 +19,7 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'ocplatform_body' => array($this, 'block_ocplatform_body'),
+            'comic_body' => array($this, 'block_comic_body'),
         );
     }
 
@@ -37,17 +37,23 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "  Accueil - ";
+        echo "  News - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
     // line 9
-    public function block_ocplatform_body($context, array $blocks = array())
+    public function block_comic_body($context, array $blocks = array())
     {
         // line 10
         echo "
+  <h2>Flux</h2>
+  <a href=\"";
+        // line 12
+        echo $this->env->getExtension('routing')->getPath("csp_comic_upload");
+        echo "\">Upload</a>
+
 
 ";
     }
@@ -64,6 +70,6 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
 
     public function getDebugInfo()
     {
-        return array (  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
+        return array (  54 => 12,  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
     }
 }

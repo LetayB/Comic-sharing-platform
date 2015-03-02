@@ -1,0 +1,75 @@
+<?php
+
+/* CSPComicBundle:Index:index.html.twig */
+class __TwigTemplate_a3ee94ab5a7bf9b8b1f0f0dd8b7591795812ff017d2ef92bfa4699f9f27ede5c extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        // line 3
+        try {
+            $this->parent = $this->env->loadTemplate("CSPComicBundle::layout.html.twig");
+        } catch (Twig_Error_Loader $e) {
+            $e->setTemplateFile($this->getTemplateName());
+            $e->setTemplateLine(3);
+
+            throw $e;
+        }
+
+        $this->blocks = array(
+            'title' => array($this, 'block_title'),
+            'comic_body' => array($this, 'block_comic_body'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "CSPComicBundle::layout.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 5
+    public function block_title($context, array $blocks = array())
+    {
+        // line 6
+        echo "  News - ";
+        $this->displayParentBlock("title", $context, $blocks);
+        echo "
+";
+    }
+
+    // line 9
+    public function block_comic_body($context, array $blocks = array())
+    {
+        // line 10
+        echo "
+  <h2>Flux</h2>
+  <a href=\"";
+        // line 12
+        echo $this->env->getExtension('routing')->getPath("csp_comic_upload");
+        echo "\">Upload</a>
+
+
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "CSPComicBundle:Index:index.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  54 => 12,  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
+    }
+}

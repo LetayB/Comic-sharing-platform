@@ -2,4 +2,4 @@ _assetic:
     resource: .
     type: assetic
 _app:
-    resource: 'C:\Dossier\Programmation\wamp\www\Comic-sharing-platform\Symfony\app/config/routing_dev.yml'
+    resource: /info/etu/l3spi/spi3027/Workspace/Semestre2/csp/Comic-sharing-platform/Symfony/app/config/routing_dev.yml

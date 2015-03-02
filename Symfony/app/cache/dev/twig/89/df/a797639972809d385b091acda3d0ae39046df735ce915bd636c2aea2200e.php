@@ -12,26 +12,29 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'stylesheets' => array($this, 'block_stylesheets'),
+            'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
         );
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 2
+        // line 1
         echo "
+";
+        // line 3
+        echo "
+
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset=\"utf-8\">
   <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-
-  <title>";
-        // line 9
+   <title>";
+        // line 10
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-
-  ";
+   ";
         // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 15
@@ -46,12 +49,7 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
     <li> <a href=\"#\">Random</a> </li>
     <li> <a href=\"#\">How about our lord and savior Jesus?</a> </li>
   </ul>
-  <form class=\"navbar-form navbar-right inline-form\">
-      <div class=\"form-group\">
-        <input type=\"search\" class=\"input-sm form-control\" placeholder=\"Recherche\">
-        <button type=\"submit\" class=\"btn btn-primary btn-sm\"><span class=\"glyphicon glyphicon-eye-open\"></span> Chercher</button>
-      </div>
-    </form>
+  
 </div>
   <div class=\"container\">
     <div id=\"header\" class=\"jumbotron\">
@@ -60,7 +58,11 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
         Ce site est encore en construction.
       </p>
     </div>
-
+    ";
+        // line 35
+        $this->displayBlock('body', $context, $blocks);
+        // line 37
+        echo "
    
 
 
@@ -69,25 +71,25 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
 
     <footer>
       <p>The year is ";
-        // line 48
+        // line 45
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and this is the last site on air.</p>
     </footer>
   </div>
 
   ";
-        // line 52
+        // line 49
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 57
+        // line 54
         echo "
 </body>
-</html>";
+";
     }
 
-    // line 9
+    // line 10
     public function block_title($context, array $blocks = array())
     {
-        echo "Comic Sharing Plateform";
+        echo "Comic Sharing Platerform";
     }
 
     // line 11
@@ -100,12 +102,19 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
   ";
     }
 
-    // line 52
+    // line 35
+    public function block_body($context, array $blocks = array())
+    {
+        // line 36
+        echo "    ";
+    }
+
+    // line 49
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 53
+        // line 50
         echo "    ";
-        // line 54
+        // line 51
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
   ";
@@ -123,6 +132,6 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
 
     public function getDebugInfo()
     {
-        return array (  109 => 54,  107 => 53,  104 => 52,  99 => 13,  97 => 12,  94 => 11,  88 => 9,  82 => 57,  80 => 52,  73 => 48,  38 => 15,  36 => 11,  31 => 9,  22 => 2,);
+        return array (  118 => 51,  116 => 50,  113 => 49,  109 => 36,  106 => 35,  101 => 13,  99 => 12,  96 => 11,  90 => 10,  84 => 54,  82 => 49,  75 => 45,  65 => 37,  63 => 35,  41 => 15,  39 => 11,  35 => 10,  26 => 3,  23 => 1,);
     }
 }

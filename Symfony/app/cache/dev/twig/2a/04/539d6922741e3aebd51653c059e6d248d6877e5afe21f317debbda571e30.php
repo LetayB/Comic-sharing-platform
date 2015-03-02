@@ -7,12 +7,12 @@ class __TwigTemplate_2a04539d6922741e3aebd51653c059e6d248d6877e5afe21f317debbda5
     {
         parent::__construct($env);
 
-        // line 3
+        // line 1
         try {
             $this->parent = $this->env->loadTemplate("::layout.html.twig");
         } catch (Twig_Error_Loader $e) {
             $e->setTemplateFile($this->getTemplateName());
-            $e->setTemplateLine(3);
+            $e->setTemplateLine(1);
 
             throw $e;
         }
@@ -20,7 +20,7 @@ class __TwigTemplate_2a04539d6922741e3aebd51653c059e6d248d6877e5afe21f317debbda5
         $this->blocks = array(
             'title' => array($this, 'block_title'),
             'body' => array($this, 'block_body'),
-            'ocplatform_body' => array($this, 'block_ocplatform_body'),
+            'comic_body' => array($this, 'block_comic_body'),
         );
     }
 
@@ -34,49 +34,42 @@ class __TwigTemplate_2a04539d6922741e3aebd51653c059e6d248d6877e5afe21f317debbda5
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
-    // line 5
+    // line 3
     public function block_title($context, array $blocks = array())
     {
-        // line 6
-        echo "  Comic Sharing Platform - ";
+        // line 4
+        echo "  Accueil - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
-    // line 9
+    // line 7
     public function block_body($context, array $blocks = array())
     {
-        // line 10
+        // line 8
         echo "
-<div class=\"navbar navbar-inverse\">
-  <ul class=\"nav navbar-nav\">
-    <li class=\"active\"> <a href=\"#\">Accueil</a> </li>
-    <li> <a href=\"#\">Liens</a> </li>
-    <li> <a href=\"#\">Témoignages</a> </li>
-    <li> <a href=\"#\">Références</a> </li>
-  </ul>
-</div>
-
   ";
-        // line 21
-        echo "  <h1>Sous titre commun</h1>
+        // line 10
+        echo "  <h1>Accueil</h1>
 
+
+  
   <hr>
 
   ";
-        // line 26
+        // line 17
         echo "  ";
-        $this->displayBlock('ocplatform_body', $context, $blocks);
-        // line 28
+        $this->displayBlock('comic_body', $context, $blocks);
+        // line 19
         echo "
 ";
     }
 
-    // line 26
-    public function block_ocplatform_body($context, array $blocks = array())
+    // line 17
+    public function block_comic_body($context, array $blocks = array())
     {
-        // line 27
+        // line 18
         echo "  ";
     }
 
@@ -92,6 +85,6 @@ class __TwigTemplate_2a04539d6922741e3aebd51653c059e6d248d6877e5afe21f317debbda5
 
     public function getDebugInfo()
     {
-        return array (  80 => 27,  77 => 26,  72 => 28,  69 => 26,  63 => 21,  51 => 10,  48 => 9,  41 => 6,  38 => 5,  11 => 3,);
+        return array (  73 => 18,  70 => 17,  65 => 19,  62 => 17,  54 => 10,  51 => 8,  48 => 7,  41 => 4,  38 => 3,  11 => 1,);
     }
 }

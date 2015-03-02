@@ -35,7 +35,7 @@ class IndexController extends Controller
 
 
 	    // On fait le lien Requête <-> Formulaire
-	    // À partir de maintenant, la variable $advert contient les valeurs entrées dans le formulaire par le visiteur
+	    // À partir de maintenant, la variable  contient les valeurs entrées dans le formulaire par le visiteur
 	    $form->handleRequest($request);
 
 	    // On vérifie que les valeurs entrées sont correctes
