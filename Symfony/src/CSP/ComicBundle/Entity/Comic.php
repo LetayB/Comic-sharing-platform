@@ -15,7 +15,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Comic
 {
-
+ 
     /**
      * @var integer
      *
@@ -59,6 +59,13 @@ class Comic
      * @ORM\Column(name="path", type="string", length=255)
      */
     private $path;
+
+    /**
+     * @var name
+     *
+     * @ORM\Column(name="name", type="string", length=255)
+     */
+    private $name;
 
 
     /**
@@ -186,6 +193,16 @@ class Comic
         return $this->path;
     }
 
+    /**
+     * Get path + name
+     *
+     * @return string 
+     */
+    public function getPathName()
+    {
+        return $this->getUploadDir() . $this->getName();
+    }
+
     public function __construct()
     {
         $this->date         = new \Datetime();
@@ -206,19 +223,21 @@ class Comic
         }
 
         // On récupère le nom original du fichier de l'internaute
-        $name = $this->file->getClientOriginalName();
+        $name = $this->id.'_'.$this->file->getClientOriginalName();
+
 
         // On déplace le fichier envoyé dans le répertoire de notre choix
         $this->file->move($this->getUploadRootDir(), $name);
 
         $this->path = $this->getUploadRootDir();
+        $this->name = $name;
 
     }
 
     public function getUploadDir()
     {
     // On retourne le chemin relatif vers l'image pour un navigateur (relatif au répertoire /web donc)
-        return 'uploads/img';
+        return 'uploads/img/';
     }
 
     protected function getUploadRootDir()
@@ -229,4 +248,27 @@ class Comic
 
 
 
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Comic
+     */
+    public function setName($name)
+    {
+        $this->name = $namespace;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
 }

@@ -1,0 +1,7 @@
+<ul>
+  {% for comic in listComics %}
+    <li>{{ comic.getTitle }}
+    	<img src="{{comic.getPathName}}" title="{{comic.getAlt}}">
+    </li>
+  {% endfor %}
+</ul>

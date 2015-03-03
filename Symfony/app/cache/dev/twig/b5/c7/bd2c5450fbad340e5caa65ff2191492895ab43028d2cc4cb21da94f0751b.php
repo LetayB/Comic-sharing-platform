@@ -48,12 +48,19 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
     {
         // line 10
         echo "
+<div id=\"flux\">
   <h2>Flux</h2>
+  ";
+        // line 13
+        echo $this->env->getExtension('http_kernel')->renderFragment($this->env->getExtension('http_kernel')->controller("CSPComicBundle:Index:flux"));
+        echo "
   <a href=\"";
-        // line 12
+        // line 14
         echo $this->env->getExtension('routing')->getPath("csp_comic_upload");
         echo "\">Upload</a>
+</div>
 
+</img src=\"/uploads/img/1.jpg\" alt=\"lol\">
 
 ";
     }
@@ -70,6 +77,6 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
 
     public function getDebugInfo()
     {
-        return array (  54 => 12,  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
+        return array (  59 => 14,  55 => 13,  50 => 10,  47 => 9,  40 => 6,  37 => 5,  11 => 3,);
     }
 }

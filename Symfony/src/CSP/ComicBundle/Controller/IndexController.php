@@ -59,4 +59,40 @@ class IndexController extends Controller
         ));
 
 	}
+
+	public function fluxAction(){
+		$repository = $this
+		  ->getDoctrine()
+		  ->getManager()
+		  ->getRepository('CSPComicBundle:Comic')
+		;
+
+		$listComics = $repository->findAll();
+
+		return $this->render('CSPComicBundle:Comic:flux.html.twig', array(
+      // Tout l'intérêt est ici : le contrôleur passe
+      // les variables nécessaires au template !
+      'listComics' => $listComics
+    ));
+
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
