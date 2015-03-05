@@ -44,9 +44,15 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
 
    <div class=\"navbar navbar-inverse\">
   <ul class=\"nav navbar-nav\">
-    <li class=\"active\"> <a href=\"#\">Accueil</a> </li>
-    <li> <a href=\"#\">Liens</a> </li>
-    <li> <a href=\"#\">Random</a> </li>
+    <li> <a href=\"";
+        // line 21
+        echo $this->env->getExtension('routing')->getPath("csp_comic_homepage");
+        echo "\">Accueil</a> </li>
+    <li> <a href=\"";
+        // line 22
+        echo $this->env->getExtension('routing')->getPath("csp_comic_upload");
+        echo "\">Upload</a> </li>
+    <li> <a href=\"\">Login</a> </li>
     <li> <a href=\"#\">How about our lord and savior Jesus?</a> </li>
   </ul>
   
@@ -132,6 +138,6 @@ class __TwigTemplate_89dfa797639972809d385b091acda3d0ae39046df735ce915bd636c2aea
 
     public function getDebugInfo()
     {
-        return array (  118 => 51,  116 => 50,  113 => 49,  109 => 36,  106 => 35,  101 => 13,  99 => 12,  96 => 11,  90 => 10,  84 => 54,  82 => 49,  75 => 45,  65 => 37,  63 => 35,  41 => 15,  39 => 11,  35 => 10,  26 => 3,  23 => 1,);
+        return array (  124 => 51,  122 => 50,  119 => 49,  115 => 36,  112 => 35,  107 => 13,  105 => 12,  102 => 11,  96 => 10,  90 => 54,  88 => 49,  81 => 45,  71 => 37,  69 => 35,  53 => 22,  49 => 21,  41 => 15,  39 => 11,  35 => 10,  26 => 3,  23 => 1,);
     }
 }

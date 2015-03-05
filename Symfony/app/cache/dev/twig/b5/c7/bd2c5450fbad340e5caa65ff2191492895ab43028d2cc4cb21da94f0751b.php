@@ -60,7 +60,6 @@ class __TwigTemplate_b5c7bd2c5450fbad340e5caa65ff2191492895ab43028d2cc4cb21da94f
         echo "\">Upload</a>
 </div>
 
-</img src=\"/uploads/img/1.jpg\" alt=\"lol\">
 
 ";
     }
