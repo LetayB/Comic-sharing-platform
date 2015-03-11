@@ -200,7 +200,7 @@ class Comic
      */
     public function getPathName()
     {
-        return $this->getUploadDir() . $this->getName();
+        return $this->getUploadDir().'/'.$this->id.'.'.$this->path;
     }
 
     public function __construct()
@@ -215,6 +215,22 @@ class Comic
     public $file;
 
 
+    /**
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            $this->path = $this->file->guessExtension();
+            $this->name = $this->file->getClientOriginalName();
+        }
+    }
+
+     /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
     public function upload()
     {
         // Si jamais il n'y a pas de fichier (champ facultatif), on ne fait rien
@@ -222,15 +238,8 @@ class Comic
           return;
         }
 
-        // On récupère le nom original du fichier de l'internaute
-        $name = $this->id.'_'.$this->file->getClientOriginalName();
-
-
         // On déplace le fichier envoyé dans le répertoire de notre choix
-        $this->file->move($this->getUploadRootDir(), $name);
-
-        $this->path = $this->getUploadRootDir();
-        $this->name = $name;
+        $this->file->move($this->getUploadRootDir(), $this->id.'.'.$this->file->guessExtension());
 
     }
 
@@ -246,6 +255,21 @@ class Comic
         return __DIR__.'/../../../../web/'.$this->getUploadDir();
     }
 
+
+    public function getAbsolutePath()
+    {
+        return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->id.'.'.$this->path;
+    }
+
+     /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($this->filenameForRemove) {
+            unlink($this->filenameForRemove);
+        }
+    }
 
 
 

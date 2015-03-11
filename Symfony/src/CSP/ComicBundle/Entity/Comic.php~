@@ -232,6 +232,16 @@ class Comic
 
     }
 
+     /**
+     * @ORM\PostRemove()
+     */
+    public function removeUpload()
+    {
+        if ($this->filenameForRemove) {
+            unlink($this->filenameForRemove);
+        }
+    }
+
     public function getUploadDir()
     {
     // On retourne le chemin relatif vers l'image pour un navigateur (relatif au répertoire /web donc)

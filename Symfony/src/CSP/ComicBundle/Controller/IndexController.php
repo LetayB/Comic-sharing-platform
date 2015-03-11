@@ -41,11 +41,13 @@ class IndexController extends Controller
 	    // On vérifie que les valeurs entrées sont correctes
 	    // (Nous verrons la validation des objets en détail dans le prochain chapitre)
 	    if ($form->isValid()) {
-	    	$comic->upload();
+	    	$comic->preUpload();
 		      // On l'enregistre notre objet $advert dans la base de données, par exemple
 		      $em = $this->getDoctrine()->getManager();
 		      $em->persist($comic);
 		      $em->flush();
+
+		      $comic->upload();
 
 		      $request->getSession()->getFlashBag()->add('notice', 'Comic bien enregistrée.');
 
