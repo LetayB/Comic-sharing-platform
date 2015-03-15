@@ -44,10 +44,36 @@ class __TwigTemplate_acdbdfddafc1df6b480988482255f445ad5a62d9656608b1c68ec9ee2cb
 
    <div class=\"navbar navbar-inverse\">
   <ul class=\"nav navbar-nav\">
-    <li class=\"active\"> <a href=\"#\">Accueil</a> </li>
-    <li> <a href=\"#\">Liens</a> </li>
-    <li> <a href=\"#\">Random</a> </li>
-    <li> <a href=\"#\">How about our lord and savior Jesus?</a> </li>
+    <li> <a href=\"";
+        // line 21
+        echo $this->env->getExtension('routing')->getPath("csp_comic_homepage");
+        echo "\">Accueil</a> </li>
+    <li> <a href=\"";
+        // line 22
+        echo $this->env->getExtension('routing')->getPath("csp_comic_upload");
+        echo "\">Upload</a> </li>
+    
+        ";
+        // line 24
+        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 25
+            echo "           <li> <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("fos_user_profile_show");
+            echo "\">";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "user", array()), "username", array()), "html", null, true);
+            echo "</a> </li> <li> <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_logout");
+            echo "\">Déconnexion</a> </li>
+        ";
+        } else {
+            // line 27
+            echo "           <li> <a href=\"";
+            echo $this->env->getExtension('routing')->getPath("fos_user_security_login");
+            echo "\">Connexion</a></li>
+        ";
+        }
+        // line 29
+        echo "   
   </ul>
   
 </div>
@@ -59,9 +85,9 @@ class __TwigTemplate_acdbdfddafc1df6b480988482255f445ad5a62d9656608b1c68ec9ee2cb
       </p>
     </div>
     ";
-        // line 35
+        // line 40
         $this->displayBlock('body', $context, $blocks);
-        // line 37
+        // line 42
         echo "
    
 
@@ -71,18 +97,21 @@ class __TwigTemplate_acdbdfddafc1df6b480988482255f445ad5a62d9656608b1c68ec9ee2cb
 
     <footer>
       <p>The year is ";
-        // line 45
+        // line 50
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "Y"), "html", null, true);
         echo " and this is the last site on air.</p>
     </footer>
   </div>
 
   ";
-        // line 49
-        $this->displayBlock('javascripts', $context, $blocks);
         // line 54
+        $this->displayBlock('javascripts', $context, $blocks);
+        // line 59
         echo "
 </body>
+
+
+
 ";
     }
 
@@ -102,19 +131,19 @@ class __TwigTemplate_acdbdfddafc1df6b480988482255f445ad5a62d9656608b1c68ec9ee2cb
   ";
     }
 
-    // line 35
+    // line 40
     public function block_body($context, array $blocks = array())
     {
-        // line 36
+        // line 41
         echo "    ";
     }
 
-    // line 49
+    // line 54
     public function block_javascripts($context, array $blocks = array())
     {
-        // line 50
+        // line 55
         echo "    ";
-        // line 51
+        // line 56
         echo "    <script src=\"//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js\"></script>
     <script src=\"//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js\"></script>
   ";
@@ -132,6 +161,6 @@ class __TwigTemplate_acdbdfddafc1df6b480988482255f445ad5a62d9656608b1c68ec9ee2cb
 
     public function getDebugInfo()
     {
-        return array (  118 => 51,  116 => 50,  113 => 49,  109 => 36,  106 => 35,  101 => 13,  99 => 12,  96 => 11,  90 => 10,  84 => 54,  82 => 49,  75 => 45,  65 => 37,  63 => 35,  41 => 15,  39 => 11,  35 => 10,  26 => 3,  23 => 1,);
+        return array (  147 => 56,  145 => 55,  142 => 54,  138 => 41,  135 => 40,  130 => 13,  128 => 12,  125 => 11,  119 => 10,  110 => 59,  108 => 54,  101 => 50,  91 => 42,  89 => 40,  76 => 29,  70 => 27,  60 => 25,  58 => 24,  53 => 22,  49 => 21,  41 => 15,  39 => 11,  35 => 10,  26 => 3,  23 => 1,);
     }
 }

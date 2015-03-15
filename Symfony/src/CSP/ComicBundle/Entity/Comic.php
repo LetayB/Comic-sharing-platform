@@ -200,7 +200,7 @@ class Comic
      */
     public function getPathName()
     {
-        return $this->getUploadDir().'/'.$this->id.'.'.$this->path;
+        return $this->getUploadDir().$this->id.'.'.$this->path;
     }
 
     public function __construct()
@@ -246,13 +246,13 @@ class Comic
     public function getUploadDir()
     {
     // On retourne le chemin relatif vers l'image pour un navigateur (relatif au répertoire /web donc)
-        return 'uploads/img/';
+        return '/uploads/img/';
     }
 
     protected function getUploadRootDir()
     {
         // On retourne le chemin relatif vers l'image pour notre code PHP
-        return __DIR__.'/../../../../web/'.$this->getUploadDir();
+        return __DIR__.'/../../../../web'.$this->getUploadDir();
     }
 
 

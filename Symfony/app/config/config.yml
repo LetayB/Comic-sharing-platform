@@ -24,6 +24,8 @@ framework:
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    
+    translator:      { fallback: %locale% }
 
 # Twig Configuration
 twig:
@@ -72,3 +74,8 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+    firewall_name: main
+    user_class: CSP\UserBundle\Entity\User
