@@ -19,7 +19,7 @@ class __TwigTemplate_f5707a243f8119a6316e48c94658a4de453bd22a5413718ed0e59a80e78
 
         $this->blocks = array(
             'title' => array($this, 'block_title'),
-            'ocplatform_body' => array($this, 'block_ocplatform_body'),
+            'comic_body' => array($this, 'block_comic_body'),
         );
     }
 
@@ -37,17 +37,21 @@ class __TwigTemplate_f5707a243f8119a6316e48c94658a4de453bd22a5413718ed0e59a80e78
     public function block_title($context, array $blocks = array())
     {
         // line 6
-        echo "  Accueil - ";
+        echo "  News - ";
         $this->displayParentBlock("title", $context, $blocks);
         echo "
 ";
     }
 
     // line 9
-    public function block_ocplatform_body($context, array $blocks = array())
+    public function block_comic_body($context, array $blocks = array())
     {
         // line 10
         echo "
+<div id=\"flux\">
+  <h2>Acceuil</h2>
+</div>
+
 
 ";
     }

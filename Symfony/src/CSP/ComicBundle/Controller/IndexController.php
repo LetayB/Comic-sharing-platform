@@ -20,14 +20,43 @@ class IndexController extends Controller
       return new Response($content);
     }
 
+    public function comicsAction(Request $request)
+    {
+  		$repository = $this
+		  ->getDoctrine()
+		  ->getManager()
+		  ->getRepository('CSPComicBundle:Comic')
+		;
+
+		$listComics = $repository->findAll();
+
+		return $this->render('CSPComicBundle:Comic:comics.html.twig', array(
+      // Tout l'intérêt est ici : le contrôleur passe
+      // les variables nécessaires au template !
+      'listComics' => $listComics
+    ));
+    }
+
+  
+
+	
+
+    
+
+
     public function uploadAction(Request $request)
 	{
 	    $comic = new Comic();
+
+	    $user = $this->getUser();
+
+
+
+	    $comic->setAuthor($user->getId());
 	    
 
 	    $form = $this->createFormBuilder($comic)
 	        ->add('title')
-	        ->add('author')
 	        ->add('file','file')
 	        ->add('alt')
 	        ->getForm()
@@ -78,6 +107,55 @@ class IndexController extends Controller
     ));
 
 	}
+
+	public function personnalAction(){
+		$repository = $this
+		  ->getDoctrine()
+		  ->getManager()
+		  ->getRepository('CSPComicBundle:Comic')
+		;
+
+		$listComics = $repository->findBy(
+		  array('author' => $this->getUser()->getId()), // Critere
+		  array('id' => 'desc'),        // Tri
+		  20,                              // Limite
+		  0                               // Offset
+		);
+
+
+		return $this->render('CSPComicBundle:Comic:personnal.html.twig', array(
+      // Tout l'intérêt est ici : le contrôleur passe
+      // les variables nécessaires au template !
+      'listComics' => $listComics
+    ));
+
+	}
+
+
+	public function comicAction($id){
+		$repository = $this
+		  ->getDoctrine()
+		  ->getManager()
+		  ->getRepository('CSPComicBundle:Comic')
+		;
+
+		$listComics = $repository->findBy(
+		  array('id' => $id), // Critere
+		  array('id' => 'desc'),        // Tri
+		  1,                              // Limite
+		  0                               // Offset
+		);
+
+
+		return $this->render('CSPComicBundle:Comic:comic.html.twig', array(
+      // Tout l'intérêt est ici : le contrôleur passe
+      // les variables nécessaires au template !
+      'listComics' => $listComics
+    ));
+
+	}
+
+
 }
 
 

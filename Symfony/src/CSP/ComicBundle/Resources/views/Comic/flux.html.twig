@@ -1,7 +1,9 @@
 <ul>
   {% for comic in listComics %}
-    <li>{{ comic.getTitle }}
+    <li><a href="{{path('csp_comic_comic',{'id': comic.getId})}}" style="color: #000000; text-decoration: none;">{{ comic.getTitle }}
     	<img src="{{comic.getPathName}}" title="{{comic.getAlt}}">
+    	{{ comic.getAuthor }}
+    	</a>
     </li>
   {% endfor %}
 </ul>

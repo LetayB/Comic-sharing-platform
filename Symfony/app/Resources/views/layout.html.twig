@@ -13,30 +13,54 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   {% endblock %}
 </head>
-
-<body>
-
-   <div class="navbar navbar-inverse">
-  <ul class="nav navbar-nav">
-    <li> <a href="{{ path('csp_comic_homepage') }}">Accueil</a> </li>
-    <li> <a href="{{ path('csp_comic_upload') }}">Upload</a> </li>
-    
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-           <li> <a href="{{ path('fos_user_profile_show') }}">{{ app.user.username }}</a> </li> <li> <a href="{{ path('fos_user_security_logout') }}">Déconnexion</a> </li>
-        {% else %}
-           <li> <a href="{{ path('fos_user_security_login') }}">Connexion</a></li>
-        {% endif %}
-   
-  </ul>
   
-</div>
-  <div class="container">
-    <div id="header" class="jumbotron">
-      <h1>WEBCOMIC SHARE</h1>
-      <p>
-        Ce site est encore en construction.
-      </p>
+<body>  
+  
+
+<div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header ">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{{ path('csp_comic_homepage') }} ">Comic Sharing Platform</a>
+      
     </div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ path('csp_comic_comics') }}">Flux</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ app.user.username }} <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="{{ path('csp_comic_personnal') }}">Comics</a></li>
+            <li><a href="{{ path('csp_comic_upload') }}">Upload</a></li>
+            <li class="divider"></li>
+            <li><a href="{{ path('fos_user_profile_show') }}">Compte</a></li>
+          </ul>
+        </li>
+        <li><a href="{{ path('fos_user_security_logout') }}">Deconnexion</a></li>
+      </ul>
+      {% else %}
+      <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="{{ path('csp_comic_comics') }}">Flux</a></li>
+        <li class="active"><a href="{{ path('fos_user_security_login') }}">Connexion <span class="sr-only">(current)</span></a></li>
+        <li><a href="{{ path('fos_user_registration_register') }}">Inscription</a></li>
+      </ul>
+
+      {% endif %}
+      
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+  <div class="container">
+
+    
     {% block body %}
     {% endblock %}
 
@@ -47,7 +71,7 @@
     <hr>
 
     <footer>
-      <p>The year is {{ 'now'|date('Y') }} and this is the last site on air.</p>
+      <p>Ce site a été réaliser dans le cadre d'un projet étudiant durant l'année {{ 'now'|date('Y') }}.</p>
     </footer>
   </div>
 

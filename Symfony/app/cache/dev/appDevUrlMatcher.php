@@ -141,6 +141,24 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::uploadAction',  '_route' => 'csp_comic_upload',);
         }
 
+        // csp_comic_personnal
+        if ($pathinfo === '/personnal') {
+            return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::personnalAction',  '_route' => 'csp_comic_personnal',);
+        }
+
+        if (0 === strpos($pathinfo, '/comic')) {
+            // csp_comic_comic
+            if (preg_match('#^/comic/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'csp_comic_comic')), array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::comicAction',));
+            }
+
+            // csp_comic_comics
+            if ($pathinfo === '/comics') {
+                return array (  '_controller' => 'CSP\\ComicBundle\\Controller\\IndexController::comicsAction',  '_route' => 'csp_comic_comics',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/log')) {
             if (0 === strpos($pathinfo, '/login')) {
                 // fos_user_security_login

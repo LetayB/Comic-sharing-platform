@@ -1,0 +1,15 @@
+{% extends "CSPComicBundle::layout.html.twig" %}
+
+{% block title %}
+  News - {{ parent() }}
+{% endblock %}
+
+{% block comic_body %}
+
+<div id="flux">
+  <h2>Flux</h2>
+  {{ render(controller("CSPComicBundle:Index:flux")) }}
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "CSPComicBundle::layout.html.twig" %}
+
+{% block title %}
+  News - {{ parent() }}
+{% endblock %}
+
+{% block comic_body %}
+
+<div id="flux">
+  {% for comic in listComics %}
+    <li>{{ comic.getTitle }}
+    	<img src="{{comic.getPathName}}" title="{{comic.getAlt}}">
+    </li>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
+
